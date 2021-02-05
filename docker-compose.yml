@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  webservice:
+    image: webdevops/nginx
+    environment: 
+      WEB_DOCUMENT_ROOT: "/app"
+      WEB_DOCUMENT_INDEX : "index.html"
+    restart: always
+    volumes:
+      - type: bind
+        source: ./web
+        target: /app
+    ports:
+      - "80:80"
+      - "443:443"
